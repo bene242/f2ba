@@ -39,28 +39,43 @@ def main():
     fobj.close()
 
     ### save in sqlite3
+    save_in_sqlite()
+#    print_ips()
 
-
-    print_ips()
 
 def save_in_sqlite():
-    conn = sqlite3.connect('fail2ban.sqlite')
+    conn = sqlite3.connect(':memory:')
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS ipees (
+            id INTEGER PRIMARY KEY,
+            ip TEXT NOT NULL,
+            count INTEGER DEFAULT 0
+        )
+    """)
+
+
     for mkeys in fdict:
         anzahl_ips = fdict[mkeys]
-        conn.execute('insert into ips (ip,anzahl) values ("192.000.000.255",3)')
-    conn.commit()
+        cur.execute("insert into ipees (ip,count) values (?, ?)", (mkeys, anzahl_ips))
+        conn.commit()
 
+    for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count"):
+        print(row["ip"], " - ", row["count"])
+
+    cur.close()
     conn.close()
+
 
 def print_ips():
     #IPs ausgeben:
+    print("IPs; Anzahl")
     for mkeys in fdict:
         anzahl_ips = fdict[mkeys]
         str(anzahl_ips)
-        #if anzahl_ips != 1 and anzahl_ips != 2:
-        if anzahl_ips not in [1,2,3]:
-            print("%s: %d" % (mkeys,anzahl_ips))
-        #print(fdict[mkeys])
+        print("%s; %d" % (mkeys,anzahl_ips))
 
 def print_dates():
     #nach Datum ausgeben
@@ -78,7 +93,7 @@ def print_dates():
 
 
 def usage():
-    print("Usage: python3 filename\n")
+    print("Usage: python3 failstat.py filename\n")
     exit(1)
 
 def nofile(filename):

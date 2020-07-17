@@ -41,16 +41,24 @@ def main():
             hashDate[fdate] = 1
     fobj.close()
 
-    ### save in sqlite3
-    save_in_sqlite()
-#    print_ips()
-
-
-###############################################################################
-def save_in_sqlite():
     conn = sqlite3.connect(':memory:')
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
+
+
+    ### save in sqlite3
+    save_in_sqlite(cur,conn)
+    print_from_sqlite(cur)
+    print_total_sqlite(cur)
+#    print_ips()
+
+    cur.close()
+    conn.close()
+
+
+
+###############################################################################
+def save_in_sqlite(cur,conn):
 
     cur.execute("""
         CREATE TABLE IF NOT EXISTS ipees (
@@ -66,11 +74,21 @@ def save_in_sqlite():
         cur.execute("insert into ipees (ip,count) values (?, ?)", (mkeys, anzahl_ips))
         conn.commit()
 
+
+###############################################################################
+def print_from_sqlite(cur):
+
     for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count"):
         print(row["ip"], " - ", row["count"])
 
-    cur.close()
-    conn.close()
+
+
+###############################################################################
+def print_total_sqlite(cur):
+
+    for row in cur.execute("SELECT count(count) as total FROM ipees"):
+        print("Anzahl:  ", row["total"])
+
 
 
 ###############################################################################

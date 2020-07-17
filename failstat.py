@@ -12,6 +12,9 @@ fdict = {"0.0.0.0": 0}
 hashDate = {"2020-00-00": 0}
 #arrayDate[0] = "2020-00-00"
 
+
+###############################################################################
+###############################################################################
 def main():
     """ Main program """
     global fname, fdict, hashDate
@@ -43,6 +46,7 @@ def main():
 #    print_ips()
 
 
+###############################################################################
 def save_in_sqlite():
     conn = sqlite3.connect(':memory:')
     conn.row_factory = sqlite3.Row
@@ -69,6 +73,7 @@ def save_in_sqlite():
     conn.close()
 
 
+###############################################################################
 def print_ips():
     #IPs ausgeben:
     print("IPs; Anzahl")
@@ -77,6 +82,8 @@ def print_ips():
         str(anzahl_ips)
         print("%s; %d" % (mkeys,anzahl_ips))
 
+
+###############################################################################
 def print_dates():
     #nach Datum ausgeben
     #arrayDateLength = len(arrayDate)
@@ -92,13 +99,18 @@ def print_dates():
     #    print(x)
 
 
+###############################################################################
 def usage():
     print("Usage: python3 failstat.py filename\n")
     exit(1)
 
+
+###############################################################################
 def nofile(filename):
     print("No such File: " + filename +":\n")
     exit(1)
 
+###############################################################################
+###############################################################################
 if __name__ == "__main__":
     main()

@@ -5,7 +5,13 @@ import os.path
 import operator
 import sqlite3
 
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("file", help="file to work with, format: 2020-05-24 61.16.138.118")
+parser.add_argument("-d", "--descending", help="sort descending", action="store_true")
+parser.add_argument("-c", "--csv", help="output csv", action="store_true")
+args = parser.parse_args()
 
 fname =""
 fdict = {"0.0.0.0": 0}
@@ -19,41 +25,43 @@ def main():
     """ Main program """
     global fname, fdict, hashDate
     #check if only 1 Argument
-    if (len(sys.argv) != 2):
-        usage()
-    fname = sys.argv[1]
-    if (os.path.isfile(fname) != True):
-        nofile(fname)
+    if args.file:
+        fname = args.file
+        if (os.path.isfile(fname) != True):
+            nofile(fname)
+
+        fobj = open(fname)
+        for line in fobj:
+            fdate, fip = (line.split( ))
+            #nach IP
+            if fip in fdict:
+                fdict[fip] = fdict[fip]+1
+            else:
+                fdict[fip] = 1
+            #nach Datum
+            if fdate in hashDate:
+                hashDate[fdate] += 1
+            else:
+                hashDate[fdate] = 1
+        fobj.close()
+
+        conn = sqlite3.connect(':memory:')
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
 
 
-    fobj = open(fname)
-    for line in fobj:
-        fdate, fip = (line.split( ))
-        #nach IP
-        if fip in fdict:
-            fdict[fip] = fdict[fip]+1
+        ### save in sqlite3
+        save_in_sqlite(cur,conn)
+
+        if args.csv:
+            print_csv_from_sqlite(cur)
         else:
-            fdict[fip] = 1
-        #nach Datum
-        if fdate in hashDate:
-            hashDate[fdate] += 1
-        else:
-            hashDate[fdate] = 1
-    fobj.close()
+            print_from_sqlite(cur)
+            print_total_sqlite(cur)
+    #    print_ips()
 
-    conn = sqlite3.connect(':memory:')
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-
-
-    ### save in sqlite3
-    save_in_sqlite(cur,conn)
-    print_from_sqlite(cur)
-    print_total_sqlite(cur)
-#    print_ips()
-
-    cur.close()
-    conn.close()
+        cur.close()
+        conn.close()
 
 
 
@@ -77,10 +85,22 @@ def save_in_sqlite(cur,conn):
 
 ###############################################################################
 def print_from_sqlite(cur):
+    if args.descending:
+        for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count desc"):
+            print(row["ip"], " - ", row["count"])
+    else:
+        for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count"):
+            print(row["ip"], " - ", row["count"])
 
-    for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count"):
-        print(row["ip"], " - ", row["count"])
+###############################################################################
+def print_csv_from_sqlite(cur):
 
+    if args.descending:
+        for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count desc"):
+            print(row["ip"], ";", row["count"])
+    else:
+        for row in cur.execute("SELECT ip,count FROM ipees ORDER BY count"):
+            print(row["ip"], ";", row["count"])
 
 
 ###############################################################################
@@ -118,9 +138,9 @@ def print_dates():
 
 
 ###############################################################################
-def usage():
-    print("Usage: python3 failstat.py filename\n")
-    exit(1)
+#def usage():
+#    print("Usage: python3 failstat.py filename\n")
+#    exit(1)
 
 
 ###############################################################################

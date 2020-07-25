@@ -10,4 +10,4 @@ with open("../data/fail2ban.all.jatos") as f:
         if result:
             arrg = line.split()
             print(arrg[0]+" "+arrg[7])
-            exit(0)
+            #exit(0)

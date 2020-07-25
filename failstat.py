@@ -4,11 +4,13 @@ import sys
 import os.path
 import operator
 import sqlite3
-
+import re
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("file", help="file to work with, format: 2020-05-24 61.16.138.118")
+parser.add_argument("file", help="file to work with, format: \
+-> 2020-05-24 07:00:30,482 fail2ban.actions        [407]: NOTICE  [sshd] Ban 220.158.148.132 <- \
+(raw fail2ban-log)")
 parser.add_argument("-d", "--descending", help="sort descending", action="store_true")
 parser.add_argument("-c", "--csv", help="output csv", action="store_true")
 args = parser.parse_args()
@@ -24,26 +26,33 @@ hashDate = {"2020-00-00": 0}
 def main():
     """ Main program """
     global fname, fdict, hashDate
+    regex = re.compile("Ban")
     #check if only 1 Argument
     if args.file:
         fname = args.file
         if (os.path.isfile(fname) != True):
             nofile(fname)
 
-        fobj = open(fname)
-        for line in fobj:
-            fdate, fip = (line.split( ))
-            #nach IP
-            if fip in fdict:
-                fdict[fip] = fdict[fip]+1
-            else:
-                fdict[fip] = 1
-            #nach Datum
-            if fdate in hashDate:
-                hashDate[fdate] += 1
-            else:
-                hashDate[fdate] = 1
-        fobj.close()
+    #parse and save date and ip
+    with open(fname) as f:
+        for line in f:
+            line = line.rstrip()
+            result = regex.search(line)
+            if result:
+                arrg = line.split()
+                fdate = arrg[0]
+                fip = arrg[7]
+                #nach IP
+                if fip in fdict:
+                    fdict[fip] = fdict[fip]+1
+                else:
+                    fdict[fip] = 1
+                #nach Datum
+                if fdate in hashDate:
+                    hashDate[fdate] += 1
+                else:
+                    hashDate[fdate] = 1
+        f.close()
 
         conn = sqlite3.connect(':memory:')
         conn.row_factory = sqlite3.Row

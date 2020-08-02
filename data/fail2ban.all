@@ -1,0 +1,24 @@
+2020-07-19 00:00:03,542 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
+2020-07-22 17:27:51,138 fail2ban.server         [588]: INFO    --------------------------------------------------
+2020-07-22 17:27:51,143 fail2ban.server         [588]: INFO    Starting Fail2ban v0.10.2
+2020-07-22 17:27:51,324 fail2ban.database       [588]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2020-07-22 17:27:51,366 fail2ban.jail           [588]: INFO    Creating new jail 'sshd'
+2020-07-22 17:27:51,591 fail2ban.jail           [588]: INFO    Jail 'sshd' uses pyinotify {}
+2020-07-22 17:27:51,609 fail2ban.jail           [588]: INFO    Initiated 'pyinotify' backend
+2020-07-22 17:27:51,615 fail2ban.filter         [588]: INFO      maxLines: 1
+2020-07-22 17:27:51,948 fail2ban.server         [588]: INFO    Jail sshd is not a JournalFilter instance
+2020-07-22 17:27:51,955 fail2ban.filter         [588]: INFO    Added logfile: '/var/log/auth.log' (pos = 558853, hash = 3e2afbdb059992510135e7f2e3805dd79b861fc3)
+2020-07-22 17:27:51,991 fail2ban.filter         [588]: INFO      encoding: UTF-8
+2020-07-22 17:27:51,993 fail2ban.filter         [588]: INFO      maxRetry: 3
+2020-07-22 17:27:51,996 fail2ban.filter         [588]: INFO      findtime: 1200
+2020-07-22 17:27:51,998 fail2ban.actions        [588]: INFO      banTime: 60000
+2020-07-22 17:27:52,014 fail2ban.jail           [588]: INFO    Jail 'sshd' started
+2020-07-12 00:00:02,786 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
+2020-07-05 00:00:03,591 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
+2020-06-28 00:00:03,124 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
+2020-06-21 00:00:02,628 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
+2020-06-21 09:47:36,505 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:36
+2020-06-21 09:47:39,214 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:38
+2020-06-21 09:47:40,822 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:40
+2020-06-21 09:47:40,927 fail2ban.actions        [643]: NOTICE  [sshd] Ban 192.168.178.53
+2020-06-22 02:27:40,258 fail2ban.actions        [643]: NOTICE  [sshd] Unban 192.168.178.53

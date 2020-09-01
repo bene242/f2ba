@@ -1,0 +1,50 @@
+2020-08-09 06:32:44,839 fail2ban.server         [423]: INFO    rollover performed on /var/log/fail2ban.log
+2020-08-09 06:34:02,624 fail2ban.actions        [423]: NOTICE  [sshd] Unban 112.122.5.6
+2020-08-09 06:38:15,756 fail2ban.filter         [423]: INFO    [sshd] Found 101.68.78.194 - 2020-08-09 06:38:15
+2020-08-09 06:38:17,402 fail2ban.filter         [423]: INFO    [sshd] Found 101.68.78.194 - 2020-08-09 06:38:17
+2020-08-09 06:38:35,729 fail2ban.filter         [423]: INFO    [sshd] Found 112.122.5.6 - 2020-08-09 06:38:35
+2020-08-09 06:38:37,597 fail2ban.filter         [423]: INFO    [sshd] Found 112.122.5.6 - 2020-08-09 06:38:37
+2020-08-09 06:40:24,806 fail2ban.filter         [423]: INFO    [sshd] Found 65.49.194.40 - 2020-08-09 06:40:24
+2020-08-09 06:40:27,511 fail2ban.filter         [423]: INFO    [sshd] Found 65.49.194.40 - 2020-08-09 06:40:27
+2020-08-09 06:40:57,220 fail2ban.actions        [423]: NOTICE  [sshd] Unban 106.12.33.134
+2020-08-09 06:42:42,146 fail2ban.filter         [423]: INFO    [sshd] Found 189.4.2.58 - 2020-08-09 06:42:42
+2020-08-09 06:42:42,587 fail2ban.filter         [423]: INFO    [sshd] Found 14.146.95.112 - 2020-08-09 06:42:42
+2020-08-09 06:42:44,191 fail2ban.filter         [423]: INFO    [sshd] Found 189.4.2.58 - 2020-08-09 06:42:43
+2020-08-09 06:42:44,376 fail2ban.filter         [423]: INFO    [sshd] Found 14.146.95.112 - 2020-08-09 06:42:44
+2020-08-09 06:43:07,757 fail2ban.filter         [423]: INFO    [sshd] Found 212.47.241.15 - 2020-08-09 06:43:07
+2020-08-09 06:43:09,845 fail2ban.filter         [423]: INFO    [sshd] Found 212.47.241.15 - 2020-08-09 06:43:09
+2020-08-09 06:43:51,587 fail2ban.filter         [423]: INFO    [sshd] Found 112.122.5.6 - 2020-08-09 06:43:51
+2020-08-09 06:43:51,680 fail2ban.actions        [423]: NOTICE  [sshd] Ban 112.122.5.6
+2020-08-09 06:43:53,513 fail2ban.filter         [423]: INFO    [sshd] Found 112.122.5.6 - 2020-08-09 06:43:53
+2020-08-09 06:44:59,794 fail2ban.actions        [423]: NOTICE  [sshd] Unban 106.51.3.214
+2020-08-09 06:45:05,655 fail2ban.filter         [423]: INFO    [sshd] Found 106.51.3.214 - 2020-08-09 06:45:05
+2020-08-09 06:45:08,360 fail2ban.filter         [423]: INFO    [sshd] Found 106.51.3.214 - 2020-08-09 06:45:08
+2020-08-09 06:45:09,064 fail2ban.filter         [423]: INFO    [sshd] Found 129.211.174.145 - 2020-08-09 06:45:09
+2020-08-09 06:45:11,004 fail2ban.filter         [423]: INFO    [sshd] Found 129.211.174.145 - 2020-08-09 06:45:11
+2020-08-09 06:45:52,396 fail2ban.filter         [423]: INFO    [sshd] Found 27.254.130.67 - 2020-08-09 06:45:51
+2020-08-09 06:45:54,061 fail2ban.filter         [423]: INFO    [sshd] Found 27.254.130.67 - 2020-08-09 06:45:54
+2020-08-09 06:46:13,491 fail2ban.filter         [423]: INFO    [sshd] Found 85.239.35.12 - 2020-08-09 06:46:13
+2020-08-09 06:46:14,618 fail2ban.filter         [423]: INFO    [sshd] Found 85.239.35.12 - 2020-08-09 06:46:14
+2020-08-09 06:46:33,370 fail2ban.filter         [423]: INFO    [sshd] Found 124.93.160.173 - 2020-08-09 06:46:33
+2020-08-09 06:46:35,206 fail2ban.filter         [423]: INFO    [sshd] Found 124.93.160.173 - 2020-08-09 06:46:35
+2020-08-09 06:46:57,974 fail2ban.actions        [423]: NOTICE  [sshd] Unban 89.3.236.207
+2020-08-09 06:48:28,417 fail2ban.actions        [423]: NOTICE  [sshd] Unban 189.7.217.23
+2020-08-09 06:48:55,985 fail2ban.filter         [423]: INFO    [sshd] Found 193.77.155.50 - 2020-08-09 06:48:55
+2020-08-09 06:48:58,091 fail2ban.filter         [423]: INFO    [sshd] Found 193.77.155.50 - 2020-08-09 06:48:58
+2020-08-09 06:49:11,448 fail2ban.filter         [423]: INFO    [sshd] Found 58.87.75.178 - 2020-08-09 06:49:11
+2020-08-09 06:49:14,154 fail2ban.filter         [423]: INFO    [sshd] Found 58.87.75.178 - 2020-08-09 06:49:13
+2020-08-09 06:49:53,680 fail2ban.filter         [423]: INFO    [sshd] Found 152.32.229.70 - 2020-08-09 06:49:53
+2020-08-09 06:49:55,301 fail2ban.filter         [423]: INFO    [sshd] Found 152.32.229.70 - 2020-08-09 06:49:55
+2020-08-09 06:49:55,507 fail2ban.filter         [423]: INFO    [sshd] Found 101.68.78.194 - 2020-08-09 06:49:55
+2020-08-09 06:49:57,408 fail2ban.filter         [423]: INFO    [sshd] Found 101.68.78.194 - 2020-08-09 06:49:57
+2020-08-09 06:50:12,111 fail2ban.filter         [423]: INFO    [sshd] Found 189.7.217.23 - 2020-08-09 06:50:12
+2020-08-09 06:50:13,957 fail2ban.filter         [423]: INFO    [sshd] Found 189.7.217.23 - 2020-08-09 06:50:13
+2020-08-09 06:50:15,830 fail2ban.filter         [423]: INFO    [sshd] Found 212.47.241.15 - 2020-08-09 06:50:15
+2020-08-09 06:50:16,431 fail2ban.actions        [423]: NOTICE  [sshd] Ban 212.47.241.15
+2020-08-09 06:50:17,651 fail2ban.filter         [423]: INFO    [sshd] Found 212.47.241.15 - 2020-08-09 06:50:17
+2020-08-09 06:50:38,496 fail2ban.actions        [423]: NOTICE  [sshd] Unban 179.107.7.148
+2020-08-09 06:50:39,972 fail2ban.filter         [423]: INFO    [sshd] Found 186.122.148.9 - 2020-08-09 06:50:39
+2020-08-09 06:50:41,911 fail2ban.filter         [423]: INFO    [sshd] Found 186.122.148.9 - 2020-08-09 06:50:41
+2020-08-09 06:51:45,749 fail2ban.filter         [423]: INFO    [sshd] Found 85.239.35.12 - 2020-08-09 06:51:45
+2020-08-09 06:51:45,805 fail2ban.actions        [423]: NOTICE  [sshd] Ban 85.239.35.12
+2020-08-09 06:51:47,632 fail2ban.filter         [423]: INFO    [sshd] Found 85.239.35.12 - 2020-08-09 06:51:47

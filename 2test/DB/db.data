@@ -1,0 +1,2 @@
+host, user, password, database
+"192.168.178.58","fail","2ban","fail2ban"

@@ -45,10 +45,10 @@ def add_entry(the_ip, the_ip_int, the_date, the_time, mydbconn):
 def main():
     """ Main program """
     mydb = mysql.connector.connect(
-        host="192.168.178.58",
-        user="fail",
-        password="2ban",
-        database="fail2ban"
+        #host="192.168.178.58",
+        #user="fail",
+        #password="2ban",
+        #database="fail2ban"
     )
 
     numfound = 0

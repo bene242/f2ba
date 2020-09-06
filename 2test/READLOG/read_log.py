@@ -11,8 +11,8 @@ def main():
     """ Main program """
     # Code goes over here.
     regex = re.compile("Ban")
-    #fname = "/home/pi/fail2ban-jatos/fail2ban/fail2ban.log.1"
-    fname = "/home/pi/fail2ban.log.test"
+
+    fname = "fail2ban.log.test"
     with open(fname) as f:
         for line in f:
             line = line.rstrip()

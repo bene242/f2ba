@@ -1,3 +1,4 @@
+# locate ip with databsase from https://lite.ip2location.com/
 import os
 import IP2Location
 
@@ -7,7 +8,7 @@ import IP2Location
 '''
 # database = IP2Location.IP2Location(os.path.join("data", "IPV6-COUNTRY.BIN"), "SHARED_MEMORY")
 
-database = IP2Location.IP2Location(os.path.join("./", "IP2LOCATION-LITE-DB3.BIN"))
+database = IP2Location.IP2Location(os.path.join("../../../../", "IP2LOCATION-LITE-DB3.BIN"))
 
 rec = database.get_all("19.5.10.1")
 

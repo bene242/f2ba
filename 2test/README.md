@@ -6,3 +6,4 @@ Directories:
 - LOCATE: how to find the location (state, city, ...) of an IP
 - READLOG: test to read fail2ban logfiles
 - DB: how to work with databases
+- CSV: readind csv files

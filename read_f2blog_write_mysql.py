@@ -9,6 +9,7 @@ import socket
 import string
 import struct
 import mysql.connector
+import argparse
 
 
 debug = 1
@@ -44,11 +45,29 @@ def add_entry(the_ip, the_ip_int, the_date, the_time, mydbconn):
 
 def main():
     """ Main program """
+
+    # TODO ##################### read input file from arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--file",  help="file to work with")
+    args = parser.parse_args()
+
+    if args.file:
+        fname = args.file
+        print("Using file: " + fname)
+        sleep(2)
+    else:
+        fname = "/home/bene/github/ff/f2ba/data/fail2ban.all.jatos.short"
+        print("Using hard coded " + fname)
+        sleep(2)
+    # TODO ##################### test input file
+
+
+    # TODO ##################### read db confid from file
     mydb = mysql.connector.connect(
-        #host="192.168.178.58",
-        #user="fail",
-        #password="2ban",
-        #database="fail2ban"
+        host="192.168.178.58",
+        user="fail",
+        password="2ban",
+        database="fail2ban"
     )
 
     numfound = 0
@@ -58,46 +77,46 @@ def main():
 
     # Code goes over here.
     regex = re.compile("Ban")
-    #fname = "/home/pi/fail2ban-jatos/fail2ban/fail2ban.log.1"
-    #fname = "/home/pi/fail2ban.log.test"
-    #fname = "/home/bene/github/f2ba/data/fail2ban.all.jatos"
-    fname = "/home/bene/github/f2ba/data/fail2ban.test.jatos"
-    with open(fname) as f:
-        for line in f:
-            line = line.rstrip()
-            result = regex.search(line)
-            if result:
-                banline = line.split()
-                time_long = banline[1].split(',')
-                the_time = time_long[0]
-                the_ip = banline[7]
-                the_ip_int = ip2int(the_ip)
-                the_date = banline[0]
-                if debug==1:
-                    print(the_date + " - " + the_time + " - " + the_ip + " - " + str(the_ip_int))
-
-                if checkip(the_ip_int, the_date, mydb) == 1 :
+    try:
+        with open(fname) as f:
+            for line in f:
+                line = line.rstrip()
+                result = regex.search(line)
+                if result:
+                    banline = line.split()
+                    time_long = banline[1].split(',')
+                    the_time = time_long[0]
+                    the_ip = banline[7]
+                    the_ip_int = ip2int(the_ip)
+                    the_date = banline[0]
                     if debug==1:
-                        print("### FOUND! ###")
-                        print (the_ip, the_date)
-                    #print ip, date already in DB
-                    # logfile : ip, date already in DB
-                    numfound = numfound+1
-                    ipfound.append(the_ip)
-                else:
-                    #logfile ip,date added
-                    #insert into mysqldb
-                    if add_entry(the_ip, the_ip_int, the_date, the_time, mydb) == 0:
+                        print(the_date + " - " + the_time + " - " + the_ip + " - " + str(the_ip_int))
+
+                    if checkip(the_ip_int, the_date, mydb) == 1 :
                         if debug==1:
-                            print("Something went wrong inserting")
-                            return 1
-                    else:
-                        numnotfound = numnotfound+1
-                        ipnotfound.append(the_ip)
-                        if debug==1:
-                            print("inserted")
-                            print("** NOT FOUND! **")
+                            print("### FOUND! ###")
                             print (the_ip, the_date)
+                        #print ip, date already in DB
+                        # logfile : ip, date already in DB
+                        numfound = numfound+1
+                        ipfound.append(the_ip)
+                    else:
+                        #logfile ip,date added
+                        #insert into mysqldb
+                        if add_entry(the_ip, the_ip_int, the_date, the_time, mydb) == 0:
+                            if debug==1:
+                                print("Something went wrong inserting")
+                                return 1
+                        else:
+                            numnotfound = numnotfound+1
+                            ipnotfound.append(the_ip)
+                            if debug==1:
+                                print("inserted")
+                                print("** NOT FOUND! **")
+                                print (the_ip, the_date)
+    except IOError:
+        print("file ["+ fname +"] not found or couldn't open")
+        exit()
 
     print("\ngefunden: "  + str(numfound) + "  nicht gefunden: " + str(numnotfound))
     if debug == 1:

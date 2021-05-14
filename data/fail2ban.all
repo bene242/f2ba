@@ -1,24 +1,61 @@
-2020-07-19 00:00:03,542 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
-2020-07-22 17:27:51,138 fail2ban.server         [588]: INFO    --------------------------------------------------
-2020-07-22 17:27:51,143 fail2ban.server         [588]: INFO    Starting Fail2ban v0.10.2
-2020-07-22 17:27:51,324 fail2ban.database       [588]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
-2020-07-22 17:27:51,366 fail2ban.jail           [588]: INFO    Creating new jail 'sshd'
-2020-07-22 17:27:51,591 fail2ban.jail           [588]: INFO    Jail 'sshd' uses pyinotify {}
-2020-07-22 17:27:51,609 fail2ban.jail           [588]: INFO    Initiated 'pyinotify' backend
-2020-07-22 17:27:51,615 fail2ban.filter         [588]: INFO      maxLines: 1
-2020-07-22 17:27:51,948 fail2ban.server         [588]: INFO    Jail sshd is not a JournalFilter instance
-2020-07-22 17:27:51,955 fail2ban.filter         [588]: INFO    Added logfile: '/var/log/auth.log' (pos = 558853, hash = 3e2afbdb059992510135e7f2e3805dd79b861fc3)
-2020-07-22 17:27:51,991 fail2ban.filter         [588]: INFO      encoding: UTF-8
-2020-07-22 17:27:51,993 fail2ban.filter         [588]: INFO      maxRetry: 3
-2020-07-22 17:27:51,996 fail2ban.filter         [588]: INFO      findtime: 1200
-2020-07-22 17:27:51,998 fail2ban.actions        [588]: INFO      banTime: 60000
-2020-07-22 17:27:52,014 fail2ban.jail           [588]: INFO    Jail 'sshd' started
-2020-07-12 00:00:02,786 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
-2020-07-05 00:00:03,591 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
-2020-06-28 00:00:03,124 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
-2020-06-21 00:00:02,628 fail2ban.server         [643]: INFO    rollover performed on /var/log/fail2ban.log
-2020-06-21 09:47:36,505 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:36
-2020-06-21 09:47:39,214 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:38
-2020-06-21 09:47:40,822 fail2ban.filter         [643]: INFO    [sshd] Found 192.168.178.53 - 2020-06-21 09:47:40
-2020-06-21 09:47:40,927 fail2ban.actions        [643]: NOTICE  [sshd] Ban 192.168.178.53
-2020-06-22 02:27:40,258 fail2ban.actions        [643]: NOTICE  [sshd] Unban 192.168.178.53
+2021-01-03 00:00:03,723 fail2ban.server         [619]: INFO    rollover performed on /var/log/fail2ban.log
+2021-01-03 15:59:36,454 fail2ban.server         [619]: INFO    Shutdown in progress...
+2021-01-03 15:59:36,455 fail2ban.server         [619]: INFO    Stopping all jails
+2021-01-03 15:59:36,456 fail2ban.filter         [619]: INFO    Removed logfile: '/var/log/auth.log'
+2021-01-03 15:59:36,920 fail2ban.actions        [619]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2021-01-03 15:59:36,921 fail2ban.jail           [619]: INFO    Jail 'sshd' stopped
+2021-01-03 15:59:36,922 fail2ban.database       [619]: INFO    Connection to database closed.
+2021-01-03 15:59:36,923 fail2ban.server         [619]: INFO    Exiting Fail2ban
+2021-01-03 15:59:57,867 fail2ban.server         [668]: INFO    --------------------------------------------------
+2021-01-03 15:59:57,877 fail2ban.server         [668]: INFO    Starting Fail2ban v0.10.2
+2021-01-03 15:59:57,964 fail2ban.database       [668]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2021-01-03 15:59:57,992 fail2ban.jail           [668]: INFO    Creating new jail 'sshd'
+2021-01-03 15:59:58,336 fail2ban.jail           [668]: INFO    Jail 'sshd' uses pyinotify {}
+2021-01-03 15:59:58,350 fail2ban.jail           [668]: INFO    Initiated 'pyinotify' backend
+2021-01-03 15:59:58,353 fail2ban.filter         [668]: INFO      maxLines: 1
+2021-01-03 15:59:58,492 fail2ban.server         [668]: INFO    Jail sshd is not a JournalFilter instance
+2021-01-03 15:59:58,497 fail2ban.filter         [668]: INFO    Added logfile: '/var/log/auth.log' (pos = 104587, hash = 6de7a1ee0858874fcf4ca5e331a9d1a873f4faae)
+2021-01-03 15:59:58,514 fail2ban.filter         [668]: INFO      encoding: UTF-8
+2021-01-03 15:59:58,516 fail2ban.filter         [668]: INFO      maxRetry: 3
+2021-01-03 15:59:58,517 fail2ban.filter         [668]: INFO      findtime: 1200
+2021-01-03 15:59:58,518 fail2ban.actions        [668]: INFO      banTime: 60000
+2021-01-03 15:59:58,529 fail2ban.jail           [668]: INFO    Jail 'sshd' started
+2020-12-27 00:00:02,059 fail2ban.server         [641]: INFO    rollover performed on /var/log/fail2ban.log
+2021-01-02 17:46:01,830 fail2ban.server         [619]: INFO    --------------------------------------------------
+2021-01-02 17:46:01,832 fail2ban.server         [619]: INFO    Starting Fail2ban v0.10.2
+2021-01-02 17:46:02,015 fail2ban.database       [619]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2021-01-02 17:46:02,046 fail2ban.jail           [619]: INFO    Creating new jail 'sshd'
+2021-01-02 17:46:02,270 fail2ban.jail           [619]: INFO    Jail 'sshd' uses pyinotify {}
+2021-01-02 17:46:02,300 fail2ban.jail           [619]: INFO    Initiated 'pyinotify' backend
+2021-01-02 17:46:02,311 fail2ban.filter         [619]: INFO      maxLines: 1
+2021-01-02 17:46:02,613 fail2ban.server         [619]: INFO    Jail sshd is not a JournalFilter instance
+2021-01-02 17:46:02,620 fail2ban.filter         [619]: INFO    Added logfile: '/var/log/auth.log' (pos = 1032848, hash = 731fc2fa03dcfe54c4beea5667e1cd65372306e0)
+2021-01-02 17:46:02,660 fail2ban.filter         [619]: INFO      encoding: UTF-8
+2021-01-02 17:46:02,663 fail2ban.filter         [619]: INFO      maxRetry: 3
+2021-01-02 17:46:02,665 fail2ban.filter         [619]: INFO      findtime: 1200
+2021-01-02 17:46:02,668 fail2ban.actions        [619]: INFO      banTime: 60000
+2021-01-02 17:46:02,684 fail2ban.jail           [619]: INFO    Jail 'sshd' started
+2020-12-20 00:00:02,688 fail2ban.server         [652]: INFO    rollover performed on /var/log/fail2ban.log
+2020-12-21 07:32:43,676 fail2ban.server         [652]: INFO    Shutdown in progress...
+2020-12-21 07:32:43,700 fail2ban.server         [652]: INFO    Stopping all jails
+2020-12-21 07:32:43,703 fail2ban.filter         [652]: INFO    Removed logfile: '/var/log/auth.log'
+2020-12-21 07:32:43,907 fail2ban.actions        [652]: NOTICE  [sshd] Flush ticket(s) with iptables-multiport
+2020-12-21 07:32:44,312 fail2ban.jail           [652]: INFO    Jail 'sshd' stopped
+2020-12-21 07:32:44,354 fail2ban.database       [652]: INFO    Connection to database closed.
+2020-12-21 07:32:44,358 fail2ban.server         [652]: INFO    Exiting Fail2ban
+2020-12-21 07:33:03,480 fail2ban.server         [641]: INFO    --------------------------------------------------
+2020-12-21 07:33:03,496 fail2ban.server         [641]: INFO    Starting Fail2ban v0.10.2
+2020-12-21 07:33:03,601 fail2ban.database       [641]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2020-12-21 07:33:03,639 fail2ban.jail           [641]: INFO    Creating new jail 'sshd'
+2020-12-21 07:33:04,611 fail2ban.jail           [641]: INFO    Jail 'sshd' uses pyinotify {}
+2020-12-21 07:33:04,626 fail2ban.jail           [641]: INFO    Initiated 'pyinotify' backend
+2020-12-21 07:33:04,631 fail2ban.filter         [641]: INFO      maxLines: 1
+2020-12-21 07:33:04,775 fail2ban.server         [641]: INFO    Jail sshd is not a JournalFilter instance
+2020-12-21 07:33:04,790 fail2ban.filter         [641]: INFO    Added logfile: '/var/log/auth.log' (pos = 30716, hash = f5f2b0506b407d6516a69fb933b64ac1c76b2275)
+2020-12-21 07:33:04,808 fail2ban.filter         [641]: INFO      encoding: UTF-8
+2020-12-21 07:33:04,809 fail2ban.filter         [641]: INFO      maxRetry: 3
+2020-12-21 07:33:04,810 fail2ban.filter         [641]: INFO      findtime: 1200
+2020-12-21 07:33:04,812 fail2ban.actions        [641]: INFO      banTime: 60000
+2020-12-21 07:33:04,819 fail2ban.jail           [641]: INFO    Jail 'sshd' started
+2020-12-13 00:00:05,940 fail2ban.server         [652]: INFO    rollover performed on /var/log/fail2ban.log
+2020-12-06 00:00:02,727 fail2ban.server         [652]: INFO    rollover performed on /var/log/fail2ban.log

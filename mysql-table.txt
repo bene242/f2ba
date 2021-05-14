@@ -1,0 +1,9 @@
+mysql> desc fail2ban;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| ip     | varchar(16) | YES  |     | NULL    |       |
+| ip_int | bigint(20)  | YES  |     | NULL    |       |
+| date   | date        | YES  |     | NULL    |       |
+| time   | time        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+

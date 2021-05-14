@@ -38,7 +38,7 @@ def add_entry(the_ip, the_ip_int, the_date, the_time, mydbconn):
     #sql_simple="insert into fail2ban (ip,ip_int,date, time) values ('"+the_ip+"','"+str(the_ip_int)+"','"+the_date+"','"+the_time+"')"
     #print("insert into fail2ban (ip,ip_int,date, time) values ('"+the_ip+"','"+str(the_ip_int)+"','"+the_date+"','"+the_time+"')")
     #if debug==1:
-    #    print("SQL: "+sql+" Values: " +str(val[1]))
+    #    print("SQL: "+sql+" Values: " +str(val[1])+" "+str(val[2])+" "+str(val[3])+" "+str(val[0])+" ")
     mycursor.execute(sql, val)
     #mycursor.execute(sql_simple)
     mydbconn.commit()
@@ -56,7 +56,7 @@ def main():
         print("Using file: " + fname)
         sleep(2)
     else:
-        fname = "/home/bene/github/ff/f2ba/data/fail2ban.all.jatos.short"
+        fname = "/home/bene/github/ff/f2ba/data/fail2ban.log.200"
         print("Using hard coded " + fname)
         sleep(2)
     # TODO ##################### test input file
@@ -89,13 +89,13 @@ def main():
                     the_ip = banline[7]
                     the_ip_int = ip2int(the_ip)
                     the_date = banline[0]
-                    if debug==1:
+                    if debug==2:
                         print(the_date + " - " + the_time + " - " + the_ip + " - " + str(the_ip_int))
 
                     if checkip(the_ip_int, the_date, mydb) == 1 :
                         if debug==1:
-                            print("### FOUND! ###")
-                            print (the_ip, the_date)
+                            print("### FOUND! ### "+the_ip+" "+the_date)
+                            #print (the_ip, the_date)
                         #print ip, date already in DB
                         # logfile : ip, date already in DB
                         numfound = numfound+1
@@ -111,9 +111,9 @@ def main():
                             numnotfound = numnotfound+1
                             ipnotfound.append(the_ip)
                             if debug==1:
-                                print("inserted")
-                                print("** NOT FOUND! **")
-                                print (the_ip, the_date)
+                                #print("inserted")
+                                print("** NOT FOUND! **"+the_ip+" "+the_date)
+                                #print (the_ip, the_date)
     except IOError:
         print("file ["+ fname +"] not found or couldn't open")
         exit()

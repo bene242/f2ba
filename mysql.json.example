@@ -1,0 +1,6 @@
+{
+    "host":"192.168.178.58",
+    "user":"fail",
+    "passwd":"2ban",
+    "db":"fail2ban"
+}

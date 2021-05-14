@@ -10,6 +10,7 @@ import string
 import struct
 import mysql.connector
 import argparse
+import json
 
 
 debug = 1
@@ -63,11 +64,15 @@ def main():
 
 
     # TODO ##################### read db confid from file
+    with open("mysql.json") as json_data_file:
+        data = json.load(json_data_file)
+        #print(data["host"])
+
     mydb = mysql.connector.connect(
-        host="192.168.178.58",
-        user="fail",
-        password="2ban",
-        database="fail2ban"
+        host=data["host"],
+        user=data["user"],
+        password=data["passwd"],
+        database=data["db"]
     )
 
     numfound = 0

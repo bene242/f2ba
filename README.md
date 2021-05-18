@@ -2,7 +2,6 @@
 Tool for analyzing fail2ban logs
 
 Goals:
-- become a better programmer
 - a quick way to analyze fail2ban logs to identify hacking attemps.
 - block suspicous IPs via iptables (forever, like "iptables -A INPUT -s 123.123.0.0/16 -j DROP")
 

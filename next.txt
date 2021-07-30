@@ -1,0 +1,4 @@
+copy more fail2ban logs from jatos24.de
+prepare mysql-DB
+test
+more analizing...
